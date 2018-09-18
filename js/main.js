@@ -266,9 +266,10 @@ $(document).keydown(function(e){
    }
 });
 
+//Might need to change screenClickMobile back to screenClick and delete the screenClickMobile function if my test didn't work
 //Handle mouse down OR touch start
 if("ontouchstart" in window)
-   $(document).on("touchstart", screenClick);
+   $(document).on("touchstart", screenClickMobile);
 else
    $(document).on("mousedown", screenClick);
 
@@ -283,6 +284,22 @@ function screenClick()
       startGame();
    }
 }
+
+//begin screenClickMobile test function to disable double tapping
+
+function screenClickMobile(e){
+   e.preventDefault();
+   if(currentstate == states.GameScreen)
+   {
+      playerJump();
+   }
+   else if(currentstate == states.SplashScreen)
+   {
+      startGame();
+   }
+}
+
+//end screenClickMobile test function to disable double tapping
 
 function playerJump()
 {
