@@ -256,7 +256,7 @@ function gameloop() {
 //Handle space bar
 $(document).keydown(function(e){
    //space bar!
-   if(e.keyCode == 32)
+   if((e.keyCode == 32)||(e.keyCode == 13))
    {
       //in ScoreScreen, hitting space should click the "replay" button. else it's just a regular spacebar hit
       if(currentstate == states.ScoreScreen)
@@ -265,21 +265,6 @@ $(document).keydown(function(e){
          screenClick();
    }
 });
-
-
-//begin test to see if I can touch restart on mobile
-$(document).touchstart(function(){
-
-   {
-      //in ScoreScreen, hitting space should click the "replay" button. else it's just a regular spacebar hit
-      if(currentstate == states.ScoreScreen)
-         $("#replay").click();
-      else
-         screenClickMobile();
-   }
-});
-
-//end test to see if I can touch restart on mobile
 
 //Might need to change screenClickMobile back to screenClick and delete the screenClickMobile function if my test didn't work
 //Handle mouse down OR touch start
