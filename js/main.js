@@ -266,6 +266,21 @@ $(document).keydown(function(e){
    }
 });
 
+
+//begin test to see if I can touch restart on mobile
+$(document).touchstart(function(){
+
+   {
+      //in ScoreScreen, hitting space should click the "replay" button. else it's just a regular spacebar hit
+      if(currentstate == states.ScoreScreen)
+         $("#replay").click();
+      else
+         screenClickMobile();
+   }
+});
+
+//end test to see if I can touch restart on mobile
+
 //Might need to change screenClickMobile back to screenClick and delete the screenClickMobile function if my test didn't work
 //Handle mouse down OR touch start
 if("ontouchstart" in window)
