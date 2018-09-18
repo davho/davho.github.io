@@ -120,12 +120,6 @@
    user-select: none;
 }
 
-@media only screen and (min-device-width: 480px) and (max-device-width: 1024px) and (orientation:portrait) {
-body {
--webkit-transform: rotate(90deg);
-
-}}
-
 html,
 body
 {
