@@ -24,6 +24,7 @@ var states = Object.freeze({
 });
 
 var currentstate;
+var spacingVariable = 1000;
 
 var gravity = 0.25;
 var velocity = 0;
@@ -143,7 +144,7 @@ function startGame()
    //start up our loops
    var updaterate = 1000.0 / 60.0 ; //60 times a second
    loopGameloop = setInterval(gameloop, updaterate);
-   loopPipeloop = setInterval(updatePipes, 1400);
+   loopPipeloop = setInterval(updatePipes, 1000);
 
    //jump from the start!
    playerJump();
@@ -487,6 +488,9 @@ function playerScore()
 
 function updatePipes()
 {
+  //working on placing this spacingVariable in the global scope so it can be used in lieu of 1000 in 'loopPipeloop = setInterval(updatePipes, 1000)'
+  var spacingVariable = 1000+(Math.floor(Math.random()*700));
+
   var trans = (600+(Math.floor(Math.random()*4000)));
   var direction = (Math.round(Math.random()+1));
 
@@ -511,7 +515,11 @@ function updatePipes()
    var newpipe = $('<div class="pipe animated"><div class="pipe_upper" style="height: ' + topheight + 'px;"></div><div class="pipe_lower" style="height: ' + bottomheight + 'px;"></div></div>').css({scale: .9, y: origin, opacity: 0 });
    $("#flyarea").append(newpipe);
    pipes.push(newpipe.transition({scale: throb, y: midway, opacity: 1}, trans, 'ease').transition({scale: 1, y: '0px', opacity: 1}, trans, 'ease'));
-}
+
+   //working on placing this spacingVariable in the global scope so it can be used in lieu of 1000 in 'loopPipeloop = setInterval(updatePipes, 1000)'
+   console.log(spacingVariable);
+};
+
 
 var isIncompatible = {
    Android: function() {
