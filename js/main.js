@@ -48,7 +48,7 @@ var soundScore = new buzz.sound("assets/sounds/sfx_point.ogg");
 var soundHit = new buzz.sound("assets/sounds/sfx_hit.ogg");
 var soundDie = new buzz.sound("assets/sounds/sfx_die.ogg");
 var soundSwoosh = new buzz.sound("assets/sounds/sfx_swooshing.ogg");
-var themeSong = new buzz.sound("assets/sounds/them.mp3")
+var themeSong = new buzz.sound("assets/sounds/theme.mp3")
 buzz.all().setVolume(volume);
 
 //loops
@@ -487,6 +487,19 @@ function playerScore()
 
 function updatePipes()
 {
+  var trans = (600+(Math.floor(Math.random()*4000)));
+  var direction = (Math.round(Math.random()+1));
+
+  if (direction === 1){
+    var origin = '-40px';
+    var midway = '13px';
+  } else if (direction === 2) {
+    var origin = '40px';
+    var midway = '0px';
+  };
+
+  var throb = 1.15;
+
    //Do any pipes need removal?
    $(".pipe").filter(function() { return $(this).position().left <= -100; }).remove()
 
@@ -495,9 +508,9 @@ function updatePipes()
    var constraint = flyArea - pipeheight - (padding * 2); //double padding (for top and bottom)
    var topheight = Math.floor((Math.random()*constraint) + padding); //add lower padding
    var bottomheight = (flyArea - pipeheight) - topheight;
-   var newpipe = $('<div class="pipe animated"><div class="pipe_upper" style="height: ' + topheight + 'px;"></div><div class="pipe_lower" style="height: ' + bottomheight + 'px;"></div></div>');
+   var newpipe = $('<div class="pipe animated"><div class="pipe_upper" style="height: ' + topheight + 'px;"></div><div class="pipe_lower" style="height: ' + bottomheight + 'px;"></div></div>').css({scale: .9, y: origin, opacity: 0 });
    $("#flyarea").append(newpipe);
-   pipes.push(newpipe);
+   pipes.push(newpipe.transition({scale: throb, y: midway, opacity: 1}, trans, 'ease').transition({scale: 1, y: '0px', opacity: 1}, trans, 'ease'));
 }
 
 var isIncompatible = {
