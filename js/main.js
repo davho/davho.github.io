@@ -48,7 +48,7 @@ var soundScore = new buzz.sound("assets/sounds/sfx_point.ogg");
 var soundHit = new buzz.sound("assets/sounds/sfx_hit.ogg");
 var soundDie = new buzz.sound("assets/sounds/sfx_die.ogg");
 var soundSwoosh = new buzz.sound("assets/sounds/sfx_swooshing.ogg");
-var themeSong = new buzz.sound("assets/sounds/them.mp3")
+var themeSong = new buzz.sound("assets/sounds/theme.mp3")
 buzz.all().setVolume(volume);
 
 //loops
@@ -279,7 +279,7 @@ function screenClick()
    {
       playerJump();
    }
-   else if((currentstate == states.SplashScreen) || (currentstate == ScoreScreen))
+   else if((currentstate == states.SplashScreen)
    {
       startGame();
    }
@@ -293,7 +293,7 @@ function screenClickMobile(e){
    {
       playerJump();
    }
-   else if(currentstate == states.SplashScreen)
+   else if(currentstate == states.SplashScreen) || (currentstate == ScoreScreen))
    {
       startGame();
    }
