@@ -279,7 +279,7 @@ function screenClick()
    {
       playerJump();
    }
-   else if(currentstate == states.SplashScreen)
+   else if((currentstate == states.SplashScreen) || (currentstate == ScoreScreen))
    {
       startGame();
    }
