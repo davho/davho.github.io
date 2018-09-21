@@ -279,7 +279,7 @@ function screenClick()
    {
       playerJump();
    }
-   else if((currentstate == states.SplashScreen)
+   else if(currentstate == states.SplashScreen)
    {
       startGame();
    }
@@ -293,10 +293,12 @@ function screenClickMobile(e){
    {
       playerJump();
    }
-   else if(currentstate == states.SplashScreen) || (currentstate == ScoreScreen))
+   else if(currentstate == states.SplashScreen)
    {
       startGame();
    }
+   else if (currentstate == states.ScoreScreen)
+      startGame();
 }
 
 //end screenClickMobile test function to disable double tapping
