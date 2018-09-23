@@ -128,7 +128,7 @@ body
    font-family: monospace;
    font-size: 12px;
    color: #fff;
-   background-color: #201817;
+   background-color: #1f1716;
 }
 
 #gamecontainer
@@ -216,6 +216,33 @@ Screen - Game
   width: 140px;
   height: 222px;
   z-index: 20;
+
+}
+
+.fruit
+{
+  position: absolute;
+  right: 220px;
+  z-index: 200;
+}
+
+#strawberry
+{
+  position: fixed;
+  top: 570px;
+}
+
+#bananas
+{
+  position: fixed;
+  top: 620px;
+
+}
+
+#pineapple
+{
+  position: fixed;
+  top: 60px;
 
 }
 

@@ -98,7 +98,7 @@ function showSplash()
    velocity = 0;
    position = 180;
    rotation = 0;
-   score = 0;
+   score = 155;
 
    //update the player in preparation for the next game
    $("#player").css({ y: 0, x: 0});
@@ -311,6 +311,32 @@ function playerJump()
    soundJump.play();
 }
 
+function setFruit(){
+  var strawberry = $("#strawberry");
+  var bananas = $("#bananas");
+  var pineapple = $("#pineapple");
+  var fruit = score.toString().split('').reverse();
+    strawberry.empty();
+    bananas.empty();
+    pineapple.empty();
+
+    for (var i=0; i<fruit[0]; i++){
+      strawberry.append("<img src='assets/Strawberry.png'>");
+    };
+
+    for (var i=0; i<fruit[1]; i++){
+      bananas.append("<img src='assets/Bananas.png'>");
+    };
+
+    var pineappleTally = Math.floor((fruit[2] + fruit[1])/5);
+
+    for (var i=0; i<pineappleTally; i++){
+      pineapple.append("<img src='assets/Pineapple.png'>");
+    };
+
+  };
+
+
 function setBigScore(erase)
 {
    var elemscore = $("#bigscore");
@@ -485,6 +511,7 @@ function playerScore()
    soundScore.stop();
    soundScore.play();
    setBigScore();
+   setFruit();
 }
 
 function updatePipes()
