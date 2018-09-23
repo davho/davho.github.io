@@ -98,7 +98,7 @@ function showSplash()
    velocity = 0;
    position = 180;
    rotation = 0;
-   score = 155;
+   score = 0;
 
    //update the player in preparation for the next game
    $("#player").css({ y: 0, x: 0});
