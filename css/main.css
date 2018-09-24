@@ -222,27 +222,31 @@ Screen - Game
 .fruit
 {
   position: absolute;
-  right: 220px;
+  right: 50px;
   z-index: 200;
 }
 
 #strawberry
 {
   position: fixed;
-  top: 570px;
+  top: 565px;
 }
 
 #bananas
 {
   position: fixed;
-  top: 620px;
+  left: 50px;
+  right: 50%;
+  top: 565px;
 
 }
 
 #pineapple
 {
   position: fixed;
-  top: 60px;
+  left: 50px;
+  right: 50%;
+  top: 65px;
 
 }
 

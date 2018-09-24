@@ -328,7 +328,11 @@ function setFruit(){
       bananas.append("<img src='assets/Bananas.png'>");
     };
 
-    var pineappleTally = Math.floor((fruit[2] + fruit[1])/5);
+    if (fruit[2]){
+      var pineappleTally = Math.floor((fruit[2] + fruit[1])/5);
+    } else {
+      var pineappleTally = Math.floor(fruit[1]/5);
+    };
 
     for (var i=0; i<pineappleTally; i++){
       pineapple.append("<img src='assets/Pineapple.png'>");
